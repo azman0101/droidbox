@@ -22,7 +22,7 @@ RUN curl -O http://dl.google.com/android/android-sdk_r24.3.3-linux.tgz && \
     tar xfz android-sdk_r24.3.3-linux.tgz && \
     rm -f android-sdk_r24.3.3-linux.tgz
 
-RUN curl -O http://droidbox.googlecode.com/files/DroidBox411RC.tar.gz && \
+RUN curl -O https://github.com/pjlantz/droidbox/releases/download/v4.1.1/DroidBox411RC.tar.gz && \
     tar xfz DroidBox411RC.tar.gz && \
     rm -f DroidBox411RC.tar.gz
 
