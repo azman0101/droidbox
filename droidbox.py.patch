@@ -1,5 +1,23 @@
---- droidbox.py	2015-04-28 18:21:25.756046277 +0200
-+++ droidbox.py	2015-04-30 15:59:27.114049745 +0200
+--- droidbox.py	2015-04-30 15:59:27.114049745 +0200
++++ droidbox.py	2015-08-25 13:04:27.414127662 +0200
+@@ -35,7 +35,7 @@
+ 
+ from threading import Thread
+ from xml.dom import minidom
+-from subprocess import call, PIPE, Popen
++from subprocess import call, PIPE, STDOUT, Popen
+ from utils import AXMLPrinter
+ import hashlib
+ from pylab import *
+@@ -312,7 +312,7 @@
+ 		sys.exit(1)
+ 
+ 	#Execute the application
+-	ret = call(['monkeyrunner', 'monkeyrunner.py', apkName, packageName, mainActivity], stderr=PIPE, cwd=os.path.dirname(os.path.realpath(__file__)))
++	ret = call(['monkeyrunner', 'monkeyrunner.py', apkName, packageName, mainActivity], stderr=STDOUT, cwd=os.path.dirname(os.path.realpath(__file__)))
+ 
+ 	if (ret == 1):
+ 		print("Failed to execute the application.")
 @@ -359,7 +359,12 @@
  	    signal.alarm(duration)
  

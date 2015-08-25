@@ -29,7 +29,7 @@ RUN curl -O http://droidbox.googlecode.com/files/DroidBox411RC.tar.gz && \
 # accept-licenses was taken from https://github.com/embarkmobile/android-sdk-installer and is Licensed under the MIT License.
 ADD accept-licenses /build/
 RUN expect /build/accept-licenses "android update sdk --no-ui --all --filter platform-tool,system-image,android-17" "android-sdk-license-5be876d5" && \
-    echo "\n"| android create avd -n droidbox -t 1 -d 2
+    echo "\n"| android create avd -n droidbox -t 1 -d 2 --abi "default/armeabi-v7a"
 
 # ssh setup
 RUN sed  's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config -i && \
